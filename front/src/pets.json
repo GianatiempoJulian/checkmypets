@@ -1,0 +1,17 @@
+{
+    "pets":
+      [  
+          { 
+            "id": 1, "name": "Luna", "gender": "Hembra", "weight": "20", "race": "Mixta", "img": "https://images.dog.ceo/breeds/dachshund/dog-55140_640.jpg" 
+          },
+          { 
+            "id": 12, "name": "Cleo", "gender": "Hembra", "weight": "30", "race": "Mixta", "img": "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_3069.jpg"
+          },
+          { 
+            "id": 13, "name": "Negra", "gender": "Hembra", "weight": "15", "race": "Labrador", "img": "https://images.dog.ceo/breeds/hound-afghan/n02088094_3982.jpg"
+          },
+          { 
+            "id": 14, "name": "Moroco", "gender": "Macho", "weight": "20", "race": "Golden Retriever", "img": "https://images.dog.ceo/breeds/mastiff-english/1.jpg" 
+          }
+      ]
+}

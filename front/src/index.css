@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{
+    background-color: rgb(24, 24, 24);
+    color: azure;
+    font-family: sans-serif;
+}
+
+.sexo:focus{
+    background-color: red;
+}
