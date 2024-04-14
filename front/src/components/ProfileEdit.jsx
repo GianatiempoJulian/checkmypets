@@ -3,7 +3,8 @@ import { Button } from "../components/Button";
 export function ProfileEdit() {
     return (
       <>
-        <article className="bg-stone-800 m-5 h-full">
+        <article className="bg-stone-800 m-5 h-full text-center">
+            <h1 className="text-3xl m-2">Editar datos</h1>
             <form className="flex flex-col">
                 <input 
                 type="text" 

@@ -1,13 +1,28 @@
-export function PetCard({pet}, visibility) {
+import { useEffect, useState } from "react";
+
+export function PetCard({pet}) {
+   const [gender, setGender] = useState(" ");
+
+    useEffect(()=>{
+      let span = document.getElementsByClassName('pet-gender-span');
+      for(let i = 0; i < span.length; i++){
+        if(!span[i].classList.contains('bg-sky-700') && !span[i].classList.contains('bg-purple-500')){
+          pet.gender == 'Macho' ? setGender("bg-sky-700") : setGender("bg-purple-500")
+          span[i].className += gender;
+        }
+      }
+    })
+
+
     return (
       <>
-        <article className="bg-stone-800 m-5 h-full">
+        <article className="bg-stone-800 h-full">
           <section className="pet-info grid grid-cols-2">
              <img src={pet.img} alt=""  className="w-32 h-32 rounded-full p-2"/>
              <div className="grid">
                  <h2 className="text-4xl mt-2">{pet.name}</h2>
                  <div className="grid grid-rows-2 grid-cols-2 gap-2">
-                    <span className="text-xs bg-sky-700	p-1 rounded-full w-16 h-7 text-center	">{pet.gender} ♂</span>
+                    <span className="pet-gender-span text-xs p-1 rounded-full w-16 h-7 text-center">{pet.gender} ♂</span>
                     <span className="text-xs bg-stone-700	p-1 rounded-full w-16 h-7 text-center	">{pet.weight} KG </span>
                     <span className="text-xs bg-stone-700	p-1 rounded-full w-16 h-7 text-center	">{pet.race} 🐾</span>
                  </div>

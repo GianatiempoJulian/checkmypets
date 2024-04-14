@@ -15,15 +15,8 @@ export function PetList(){
     }, [])
     */
  
-    const perraco = {
-      id: 5,
-      name: "Luna",
-      gender: "Macho",
-      weight: "34",
-      race: "Mixta",
-      img: "https://images.dog.ceo/breeds/dachshund/dog-55140_640.jpg"
-    }
-    
+
+
   return(
     <>
       <div className="bg-stone-900 m-5 flex flex-col gap-2">
@@ -35,7 +28,7 @@ export function PetList(){
           <Pet key={pet.id} pet={pet}></Pet>
         ))}
       </div>
-      <PetCard pet={ perraco }></PetCard>
+     
     </>
   )
 }
