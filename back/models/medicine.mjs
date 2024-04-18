@@ -11,7 +11,7 @@ export class medicineModel{
         } = input
 
         try{
-            await connection.query(`INSERT INTO medicine (name, brand, description) 
+            await connection.query(`INSERT INTO medicines (name, brand, description) 
             VALUES (?, ?, ?);`,
             [name, brand, description])   
         }catch(err){
@@ -22,7 +22,7 @@ export class medicineModel{
     //* Retorna todas las medicinas
     static async getAll(){
         try{
-            const [medicines] = await connection.query(`SELECT * FROM medicine;`)
+            const [medicines] = await connection.query(`SELECT * FROM medicines;`)
             return medicines;
         }catch(err){
             console.log(err)
@@ -32,7 +32,7 @@ export class medicineModel{
     //* Elimina una medicina
     static async remove({id}){
         try{
-            await connection.query(`DELETE FROM medicine WHERE id = (?);`,
+            await connection.query(`DELETE FROM medicines WHERE id = (?);`,
             [id]);
         }catch(err){
             console.log(err)

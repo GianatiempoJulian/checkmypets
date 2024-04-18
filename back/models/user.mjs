@@ -17,7 +17,7 @@ export class userModel{
           } = input
         try
         {
-            await connection.query(`INSERT INTO user (name, lastname, email, password, phoneNumber, address)
+            await connection.query(`INSERT INTO users (name, lastname, email, password, phoneNumber, address)
                 VALUES (?, ?, ?, ?, ?, ?);`,
                 [name, lastname, email, encryptedPassword, phoneNumber, address])
         }catch(err){
@@ -32,7 +32,7 @@ export class userModel{
     static async getAll () {
         try{
             const [users] = await connection.query(
-                'SELECT * FROM user'
+                'SELECT * FROM users'
                 )
                return users
         }
@@ -45,7 +45,7 @@ export class userModel{
     static async getByID ({ id }) {
         try{
             const [user] = await connection.query(
-                `SELECT * FROM user WHERE id =
+                `SELECT * FROM users WHERE id =
                 (?);`
                 [id]
                 )
@@ -60,7 +60,7 @@ export class userModel{
     static async getByEmail({ email }) {
         try{
             const [user] = await connection.query(
-                `SELECT * FROM user WHERE email =
+                `SELECT * FROM users WHERE email =
                 (?);`,
                 [email])
                 return user;
@@ -72,7 +72,7 @@ export class userModel{
     //* DELETE USER *//
     static async remove({ id }) {
         try{
-            await connection.query(`DELETE FROM user WHERE id =
+            await connection.query(`DELETE FROM users WHERE id =
             (?);`,
             [id])
         }catch(err){

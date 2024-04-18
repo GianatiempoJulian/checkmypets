@@ -6,6 +6,13 @@ export function Login () {
     const [password, setPassword] = useState();
    
     const handleLogin = (event) => {
+        fetch("http://localhost:3030/api/user/login", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(data),
+        }).then((res) => console.log(res));
         event.preventDefault();
     }
 
