@@ -8,7 +8,7 @@ export const userRouter = express.Router();
 userRouter.post("/register", UserController.create)
 
 //* LOGIN *//
-userRouter.post("/verify", UserController.verify)
+userRouter.post("/login", UserController.verify)
 
 //* GET ALL THE USERS *//
 userRouter.get("/", UserController.getAll)

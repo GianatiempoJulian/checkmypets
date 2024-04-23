@@ -1,5 +1,5 @@
 {
-    "pets":
+    "pets2":
       [  
           { 
             "id": 1, "name": "Luna", "gender": "Hembra", "weight": "20", "race": "Mixta", "img": "https://images.dog.ceo/breeds/dachshund/dog-55140_640.jpg" 

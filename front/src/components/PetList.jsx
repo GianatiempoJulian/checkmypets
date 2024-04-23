@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import { Pet } from "./Pet";
-import { pets } from "../pets.json"
-import { PetCard } from "./PetCard"
+import {pets2} from "../pets.json"
 
 
 export function PetList(){
-  /*
-    const [data, setData] = useState([])
-    useEffect(() => {
-      fetch('../pets.json')
-        .then(res => res.json())
-        .then((res) => setData(res))
-        .catch((error) => console.error("Error fetching data:", error));
-    }, [])
-    */
- 
 
+  const [pets, setPets] = useState([])
+
+  useEffect(
+    () => {
+      fetch('http://localhost:5000/api/pet')
+        .then((pets) => {
+          return pets.json()
+        })
+        .then((pets) => {
+          setPets(pets);
+        })
+        
+    },[]
+  )
 
   return(
     <>
@@ -24,11 +27,8 @@ export function PetList(){
           <option value="" className="text-black">Catriel - Estrada 555</option>
           <option value="" className="text-black">Facundo - Constitucion 1555</option>
         </select>
-        {pets.map((pet) => (
-          <Pet key={pet.id} pet={pet}></Pet>
-        ))}
+        {pets.map((pet) => (<Pet key={pet.id} pet={pet}></Pet>))}
       </div>
-     
     </>
   )
 }

@@ -19,7 +19,7 @@ export class petModel {
   static async getAll() {
     try {
       const [pets] = await connection.query(
-        "SELECT id, name, gender, weight, race, image FROM pets"
+        "SELECT * FROM pets"
       );
       return pets;
     } catch (err) {

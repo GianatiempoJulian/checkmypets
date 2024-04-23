@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
 
 export function PetCard({ pet }) {
-  const [gender, setGender] = useState(" ");
 
   return (
     <>
       <article className="bg-stone-800 h-full">
         <section className="pet-info grid grid-cols-2">
-          <img src={pet.img} alt="" className="w-32 h-32 rounded-full p-2" />
+          <img src={pet.image} alt="" className="w-32 h-32 rounded-full p-2" />
           <div className="grid">
             <h2 className="text-4xl mt-2">{pet.name}</h2>
             <div className="grid grid-rows-2 grid-cols-2 gap-2 p-1 items-center">

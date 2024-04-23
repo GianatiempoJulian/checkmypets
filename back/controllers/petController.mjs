@@ -1,7 +1,7 @@
 import { petModel } from "../models/pet.mjs"
 
 export class PetController {
-    static async getAll(res) {
+    static async getAll(req, res) {
         const pets = await petModel.getAll()
         res.json(pets);
     }

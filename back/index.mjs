@@ -5,6 +5,7 @@
 import express from 'express'
 import cors from 'cors';
 import pkg from 'body-parser';
+import fetch from "node-fetch";
 const { urlencoded } = pkg;
 
 //? Inicializacion de cosas:

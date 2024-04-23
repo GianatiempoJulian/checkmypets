@@ -4,21 +4,11 @@ import { Button } from "./Button";
 export function Login () {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-   
-    const handleLogin = (event) => {
-        fetch("http://localhost:3030/api/user/login", {
-          method: "post",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(data),
-        }).then((res) => console.log(res));
-        event.preventDefault();
-    }
+  
 
     return (
       <>
-        <form onSubmit={handleLogin} className="flex flex-col">
+        <form className="flex flex-col">
             <input 
             type="text" 
             value={username} 
