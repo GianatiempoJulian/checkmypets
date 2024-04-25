@@ -1,11 +1,9 @@
-import { PetList } from "../components/PetList";
-import { Navbar } from "../components/Navbar";
-
 export function Index() {
   return (
     <>
-      <Navbar></Navbar>
-      <PetList></PetList>
+      <div className="grid grid-rows-2 h-screen">
+        
+      </div>
     </>
   );
 }

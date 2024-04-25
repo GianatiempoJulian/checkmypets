@@ -10,7 +10,7 @@ export function ProfileEdit() {
                 type="text" 
                 name="number" 
                 className="m-2 text-black placeholder:text-gray-500"
-                placeholder="Número"
+                placeholder="Número de télefono"
                 />
                 <input
                 type="email" 

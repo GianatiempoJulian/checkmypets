@@ -27,14 +27,16 @@ export function Register () {
         <form className="flex flex-col" onSubmit={onSubmit}>
             <input 
             type="text" 
-            name="name" 
+            name="name"
+            placeholder="Nombre"
             {...register("name",{
               required: true
             },)}
             className="m-2 text-black" 
             />{errors.name && <span className="text-sm text-red-700 ml-5">Nombre es requerido.</span>}
             <input 
-            type="text" 
+            type="text"
+            placeholder="Apellido"
             {...register("lastname",{
               required: true
             })}
@@ -44,6 +46,7 @@ export function Register () {
             <input 
             type="text" 
             name="address"
+            placeholder="Dirección"
             {...register("address",{
               required: true
             })}
@@ -52,6 +55,7 @@ export function Register () {
             <input 
             type="number" 
             name="phoneNumber"
+            placeholder="Número de télefono"
             {...register("phoneNumber",{
               required: true
             })}
@@ -60,6 +64,7 @@ export function Register () {
             <input 
             type="email" 
             name="email"
+            placeholder="Email"
             {...register("email",{
               required: true
             })}
@@ -68,6 +73,7 @@ export function Register () {
             <input
             type="password" 
             name="password"
+            placeholder="Contraseña"
             {...register("password",{
               required: true
             })}

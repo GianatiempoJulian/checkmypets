@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 
 export function Login () {
-    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
   
 
@@ -10,16 +10,18 @@ export function Login () {
       <>
         <form className="flex flex-col">
             <input 
-            type="text" 
-            value={username} 
-            name="username" 
-            onChange={target => setUsername(target.value)}
+            type="email" 
+            value={email} 
+            name="email"
+            placeholder="Email" 
+            onChange={target => setEmail(target.value)}
             className="m-2"
             />
             <input
             type="password" 
             value={password} 
-            name="password" 
+            name="password"
+            placeholder="Contraseña"
             onChange={target => setPassword(target.value)}
             className="m-2"
             />

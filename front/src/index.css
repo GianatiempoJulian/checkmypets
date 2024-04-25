@@ -8,6 +8,7 @@ html,body{
     font-family: sans-serif;
 }
 
-.sexo:focus{
-    background-color: red;
+hr{
+    width: 40%;
+    
 }
