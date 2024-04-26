@@ -22,6 +22,7 @@ export function Pet( pet ) {
               <span className="text-xs bg-red-900	p-1 rounded-full w-24">
                 Desparasitación
               </span>
+              
             </div>
           </div>
         </section>

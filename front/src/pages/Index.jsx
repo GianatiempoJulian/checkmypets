@@ -1,9 +1,13 @@
+import { AddPet } from "../components/AddPet";
+import { AddMedicine } from "../components/AddMedicine";
+import { Navbar } from "../components/Navbar";
+
+
 export function Index() {
   return (
     <>
-      <div className="grid grid-rows-2 h-screen">
-        
-      </div>
+      <Navbar></Navbar>
+      <AddMedicine></AddMedicine>
     </>
   );
 }
