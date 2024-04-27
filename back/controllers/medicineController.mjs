@@ -1,7 +1,7 @@
 import { medicineModel } from "../models/medicine.mjs"
 
 export class MedicineController {
-    static async getAll(res) {
+    static async getAll(req, res) {
         const medicines = await medicineModel.getAll()
         res.json(medicines);
     }
