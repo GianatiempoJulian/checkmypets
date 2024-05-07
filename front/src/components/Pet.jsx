@@ -3,10 +3,12 @@ import { PetEdit } from "./PetEdit";
 import { LinkMedicineToPet } from "./LinkMedicineToPet";
 import { useState } from "react";
 
+
 export function Pet( pet ) {
   const [data, setData] = useState('hidden');
   const [edit, setEdit] = useState('hidden');
   const [medicine, setMedicine] = useState('hidden');
+  const [removeAlert, setRemoveAlert] = useState('hidden');
 
   const showInfo = () => {
     data == ' ' ? setData('hidden') : setData(' ')
@@ -18,6 +20,14 @@ export function Pet( pet ) {
 
   const showMedicine = () =>{
     medicine == ' ' ? setMedicine('hidden') : setMedicine(' ')
+  }
+
+  const showRemoveAlert = () => {
+    removeAlert == 'alert' ? setRemoveAlert('hidden') : setRemoveAlert('alert')
+  }
+
+  const removePet = ({id}) => {
+
   }
 
   return (
@@ -41,7 +51,7 @@ export function Pet( pet ) {
               <button onClick={showInfo}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-text"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></button>
               <button onClick={showEdit}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(202 138 4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-pen-line"><path d="m18 5-3-3H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"/><path d="M8 18h1"/><path d="M18.4 9.6a2 2 0 1 1 3 3L17 17l-4 1 1-4Z"/></svg></button>
               <button onClick={showMedicine}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(6 182 212)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-syringe"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></button>
-              <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(185 28 28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></button>
+              <button onClick={showRemoveAlert}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(185 28 28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></button>
           </div>
           {/* end If session admin */}
         </section>
@@ -54,6 +64,15 @@ export function Pet( pet ) {
       </div>
       <div className={medicine}>
         <LinkMedicineToPet pet={pet.pet}></LinkMedicineToPet>
+      </div>
+      <div className={removeAlert}> 
+          <div className="bg-red-300 text-red-800 grid grid-rows-2 justify-center h-50">
+            <p className="mt-20 text-xl w-80 text-center">¿Estas seguro que deseas eliminar la información de {pet.pet.name}?</p>
+            <div className="m-10 flex justify-center aling-center">
+              <button className="p-3 w-24 bg-red-800 text-slate-100 hover:bg-red-900" onClick={removePet(pet.pet.id)}>Si</button>
+              <button className="p-3 w-24" onClick={showRemoveAlert}>No</button>
+            </div>
+          </div>
       </div>
     </>
   );

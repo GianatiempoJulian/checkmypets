@@ -23,4 +23,10 @@ export class PetController {
         const query = await petModel.remove({ id })
         res.status(201).json(query)
     }
+
+    static async medicineFromPet(req, res) {
+        const { id } = req.params
+        const query = await petModel.getMedicineByPetID({ id })
+        res.status(201).json(query)
+    }
 }

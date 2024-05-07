@@ -13,4 +13,6 @@ petRouter.get("/", PetController.getAll)
 
 //* DELETE PET *//
 petRouter.delete("/:id", PetController.remove);
- 
+
+//* GET ALL THE MEDICINE FROM PET *//
+petRouter.post("/medicines/:id", PetController.medicineFromPet);

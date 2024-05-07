@@ -39,4 +39,36 @@ export class petModel {
       console.error(err);
     }
   }
+
+  //! PET X MEDICINE !//
+
+  //* GET PETMEDICINE BY ID *//
+  static async getMedicineByPetID({ id }) {
+    try {
+      const [medicinePet] = await connection.query(
+        `SELECT * FROM medicine_x_pet WHERE petId =
+              (?);`
+        [id]
+      )
+      return medicinePet
+    }
+    catch (err) {
+      console.error(err)
+    }
+  }
+
+  //* ADD MEDICINE TO A PET *//
+  static async addMedicineToPet({ input }) {
+    const { medicineId, petId } = input;
+    try {
+      await connection.query(
+        `INSERT INTO medicine_x_pet (medicineId, petId)
+            VALUES (?, ?);`,
+        [medicineId, petId]
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
 }
