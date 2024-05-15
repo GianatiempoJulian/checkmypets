@@ -26,8 +26,15 @@ export function Pet( pet ) {
     removeAlert == 'alert' ? setRemoveAlert('hidden') : setRemoveAlert('alert')
   }
 
-  const removePet = ({id}) => {
-
+  function removePet(id) {
+    const info = {
+      "method": 'DELETE',
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    }
+      fetch(`http://localhost:5000/api/pet/` + id, info) 
+        .then(response => response.json())
+        .then(data => console.log(data))
   }
 
   return (
@@ -69,7 +76,7 @@ export function Pet( pet ) {
           <div className="bg-red-300 text-red-800 grid grid-rows-2 justify-center h-50">
             <p className="mt-20 text-xl w-80 text-center">¿Estas seguro que deseas eliminar la información de {pet.pet.name}?</p>
             <div className="m-10 flex justify-center aling-center">
-              <button className="p-3 w-24 bg-red-800 text-slate-100 hover:bg-red-900" onClick={removePet(pet.pet.id)}>Si</button>
+              <button type="submit" className="p-3 w-24 bg-red-800 text-slate-100 hover:bg-red-900" onClick={() => { removePet(pet.pet.id) }}>Si</button>
               <button className="p-3 w-24" onClick={showRemoveAlert}>No</button>
             </div>
           </div>

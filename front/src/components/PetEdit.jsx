@@ -1,6 +1,19 @@
 import { Button } from "../components/Button";
 import { useEffect, useState } from "react";
 
+function editPet(input) {
+  const info = {
+    "method": 'DELETE',
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  }
+    fetch(`http://localhost:5000/api/pet/` + id, info) 
+      .then(response => response.json())
+      .then(data => console.log(data))
+}
+
+
+
 export function PetEdit({ pet }) {
 
   return (
