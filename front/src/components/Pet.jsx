@@ -34,7 +34,9 @@ export function Pet( pet ) {
     }
       fetch(`http://localhost:5000/api/pet/` + id, info) 
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data));
+    
+    window.location.reload(false);
   }
 
   return (
