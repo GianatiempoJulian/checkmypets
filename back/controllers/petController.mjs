@@ -18,10 +18,28 @@ export class PetController {
         res.status(201).json(newPet)
     }
 
+
     static async remove(req, res) {
         const { id } = req.params
         const query = await petModel.remove({ id })
         res.status(201).json(query)
+    }
+
+    static async update(req, res) {
+        try {
+            const { id } = req.params;
+            const petData = req.body;
+            console.log('Request body:', petData); // Verificar el cuerpo de la solicitud
+            const result = await petModel.update(id, { petData });
+            
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ error: 'Mascota no encontrada' });
+            }
+            res.json({ message: 'Mascota actualizada correctamente' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al actualizar la mascota' });
+        }
     }
 
     static async medicineFromPet(req, res) {

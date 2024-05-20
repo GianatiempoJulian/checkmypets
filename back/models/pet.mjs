@@ -40,6 +40,21 @@ export class petModel {
     }
   }
 
+   //* Actualizar mascota *//
+   static async update(id , { petData }) {
+    const { name, gender, weight, race, image } = petData;
+    try {
+      const [updatedPet] = await connection.query(
+        `UPDATE pets SET name = (?), gender = (?), weight = (?), race = (?), image = (?) WHERE id = 
+            (?);`,
+        [name, gender, weight, race, image, id]
+      );
+      return updatedPet;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   //! PET X MEDICINE !//
 
   //* GET PETMEDICINE BY ID *//
