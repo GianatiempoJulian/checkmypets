@@ -1,5 +1,4 @@
-import { Button } from "../components/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function updatePet(petEdited) {
   const info = {
@@ -19,12 +18,6 @@ function updatePet(petEdited) {
 }
 
 export function PetEdit({ pet }) {
-
-
-  useEffect(() => {
-    console.log("pet", pet)
-    console.log("temp pet", petTemp)
-  })
 
   const handleSubmit = (e) => {
     updatePet(petTemp);

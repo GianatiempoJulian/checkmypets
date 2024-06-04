@@ -5,6 +5,7 @@ import { useState } from "react";
 
 
 export function Pet( pet ) {
+
   const [data, setData] = useState('hidden');
   const [edit, setEdit] = useState('hidden');
   const [medicine, setMedicine] = useState('hidden');
@@ -12,6 +13,7 @@ export function Pet( pet ) {
 
   const showInfo = () => {
     data == ' ' ? setData('hidden') : setData(' ')
+    getMedicineFromPet(id)
   };
 
   const showEdit = () =>{
@@ -38,6 +40,23 @@ export function Pet( pet ) {
     
     window.location.reload(false);
   }
+
+  /*
+  function getMedicineFromPet(id) {
+    const info = {
+      method: "POST",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    };
+    fetch(`http://localhost:5000/api/pet/medicines/` + id, info)
+      .then((medicineFromPet) => {
+        return medicineFromPet.json();
+      })
+      .then((medicineFromPet) => {
+        setMedicineFromPet(medicineFromPet);
+      });
+  }*/
+
 
   return (
     <>

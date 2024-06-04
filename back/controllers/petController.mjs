@@ -47,4 +47,16 @@ export class PetController {
         const query = await petModel.getMedicineByPetID({ id })
         res.status(201).json(query)
     }
+
+    static async vinculateMedicineToPet(req, res) {
+        try {
+            const petId  = req.body.petId;
+            const medicineId = req.body.medicineId;
+            const result = await petModel.addMedicineToPet(petId, medicineId);
+            res.json({ message: 'Medicina vinculada correctamente' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al vincular la medicina' });
+        }
+    }
 }

@@ -19,3 +19,6 @@ petRouter.put("/:id", PetController.update);
 
 //* GET ALL THE MEDICINE FROM PET *//
 petRouter.post("/medicines/:id", PetController.medicineFromPet);
+
+//* ADD MEDICINE TO PET *//
+petRouter.post("/medicines/:medicineId/:petId", PetController.vinculateMedicineToPet);

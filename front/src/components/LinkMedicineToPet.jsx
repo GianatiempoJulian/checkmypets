@@ -1,10 +1,21 @@
-import { PetCard } from "./PetCard";
-import { PetEdit } from "./PetEdit";
-import { SectionTitle } from "./SectionTitle";
-import { Button } from "./Button";
 import { useState, useEffect } from "react";
 
-
+function addMedicineToPet(medicineId, petId) {
+  const info = {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+    body: JSON.stringify(petEdited)
+  }
+    fetch(`http://localhost:5000/api/medicine/${medicineId}/${petId}`, info) 
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.error('Error:', error));
+}
 
 export function LinkMedicineToPet(pet) {
 
@@ -37,7 +48,7 @@ const [medicines, setMedicine] = useState([])
             </option>
             ))}
           </select>
-          <Button text="Agregar Medicina"></Button>
+          <button className="p-2 m-2 bg-yellow-700 rounded-md hover:bg-yellow-800 font-bold" onClick={() => addMedicineToPet(medicine.id, pet.pet.id)}>Guardar Cambios</button>
         </form>
       </article>
     </>

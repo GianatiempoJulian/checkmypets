@@ -23,4 +23,23 @@ export class MedicineController {
         const query = await medicineModel.remove({ id })
         res.status(201).json(query)
     }
+
+    static async update(req, res) {
+        try {
+            const { id } = req.params;
+            const medicineData = req.body;
+            console.log('Request body:', medicineData); // Verificar el cuerpo de la solicitud
+            const result = await medicineModel.update(id, { medicineData });
+            
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ error: 'Medicina no encontrada' });
+            }
+            res.json({ message: 'Medicina actualizada correctamente' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al actualizar la medicina' });
+        }
+    }
+
+   
 }

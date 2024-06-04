@@ -35,6 +35,22 @@ export class UserController {
         {
           res.status(404).json({ message: 'Debes ingresar ambos campos.' })
         }
-        
       }
+
+      static async update(req, res) {
+        try {
+            const { id } = req.params;
+            const userData = req.body;
+            console.log('Request body:', userData); // Verificar el cuerpo de la solicitud
+            const result = await userModel.update(id, { userData });
+           
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ error: 'Usuario no encontrada' });
+            }
+            res.json({ message: 'Usuario actualizado correctamente' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Error al actualizar el usuario' });
+        }
+    }
 }

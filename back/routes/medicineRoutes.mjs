@@ -14,3 +14,5 @@ medicineRouter.get("/", MedicineController.getAll)
 //* DELETE MEDICINE *//
 medicineRouter.delete("/:id", MedicineController.remove);
  
+//* UPDATE MEDICINE *//
+medicineRouter.put("/:id", MedicineController.update);
