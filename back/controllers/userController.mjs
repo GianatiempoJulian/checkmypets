@@ -22,9 +22,9 @@ export class UserController {
 
       static async verify(req,res)
       {
-        const email = req.body.email;
-        const password = req.body.password;
-        if(req.body.email && req.body.password){
+        const email = req.body.data.email;
+        const password = req.body.data.password;
+        if(req.body.data.email && req.body.data.password){
           const user = await userModel.verify({ email, password});
           if(!user){
             return res.status(404).json({ message: "Email y/o contraseña incorrecta" })

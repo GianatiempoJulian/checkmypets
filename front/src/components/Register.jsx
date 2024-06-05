@@ -1,14 +1,10 @@
-import { useState } from "react";
 import { Button } from "./Button"
 import { useForm } from "react-hook-form"
 
 export function Register () {
-  const {register, handleSubmit, 
-    formState:{errors}
-  } = useForm()
-
-
-
+    const {register, handleSubmit, 
+      formState:{errors}
+    } = useForm()
 
   const onSubmit = handleSubmit((data) =>{
     const requestOptions = {
@@ -78,7 +74,7 @@ export function Register () {
               required: true
             })}
             className="m-2 text-black"
-            />{errors.password && <span className="text-sm text-red-700 ml-5">Contraseña es requerido.</span>}
+            />{errors.password && <span className="text-sm text-red-700 ml-5">Contraseña es requerida.</span>}
             <Button text="Register"></Button>
          </form>
       </>
