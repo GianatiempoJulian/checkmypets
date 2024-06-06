@@ -21,10 +21,10 @@ export function Login() {
   
     fetch("http://localhost:5000/api/user/login", requestOptions)
       .then(response => response.json())
-      .then(a => console.log(a));
+      .then(a => localStorage.setItem("session", a));
     }
 
-
+ 
   return (
     <>
        <form className="flex flex-col m-2" onSubmit={handleSubmit}>
@@ -40,6 +40,8 @@ export function Login() {
           type="password"
           className="m-2 text-black"
         />
+      
+
         <Button text="Login"></Button>
       </form>
     </>

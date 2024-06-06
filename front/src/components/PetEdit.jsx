@@ -5,7 +5,8 @@ function updatePet(petEdited) {
     method: 'PUT',
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify(petEdited)
   }

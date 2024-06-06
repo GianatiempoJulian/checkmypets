@@ -1,4 +1,5 @@
 import { petModel } from "../models/pet.mjs"
+import jws from "jsonwebtoken"
 
 export class PetController {
     static async getAll(req, res) {
@@ -14,6 +15,18 @@ export class PetController {
     }
 
     static async create(req, res) {
+        const authorization = req.get('authorization')
+        let token = null
+        if(authorization && authorization.toLowerCase().startsWith('bearer')){
+            token = authorization.substring(7);
+        }
+
+        const decodedToken = jws.verify(token, process.env.SECRET)
+
+        if(!token || !decodedToken.user.id){
+            res.status(401).json({error: 'token invalido o no encontrado.'})
+        }
+
         const newPet = await petModel.create({ input: req.body })
         res.status(201).json(newPet)
     }

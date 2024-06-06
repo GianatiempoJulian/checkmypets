@@ -1,4 +1,5 @@
 import { userModel } from '../models/user.mjs'
+import jwt from "jsonwebtoken"
 
 export class UserController {
     static async getAll (res) {
@@ -29,7 +30,22 @@ export class UserController {
           if(!user){
             return res.status(404).json({ message: "Email y/o contraseña incorrecta" })
           }
-          res.status(201).json(user);
+          const userForToken = {
+            id: user.id,
+            name: user.name,
+            lastname: user.lastname,
+            email: user.email,
+            address: user.address,
+            phoneNumber: user.phoneNumber,
+            isAdmin: user.isAdmin
+          }
+          const token = jwt.sign(userForToken, proccess.env.SECRET)
+          res.send(
+            {
+              user: userForToken,
+              token
+            }
+          )
         }
         else
         {
